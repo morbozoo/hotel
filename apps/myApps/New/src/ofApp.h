@@ -9,7 +9,7 @@
 #include "TriangleManager.h"
 #include "Triangle.h"
 #include "Particle.h"
-
+#include "Masker.h"
 #define PORT 12345
 #define NUM_MSG_STRINGS 3
 
@@ -101,5 +101,14 @@ class ofApp : public ofBaseApp{
     int mtempTriA;
     int mtempTriB;
     int mtempTriC;
+
+    //-----------MASK-----------------------------------
+    Masker mask;
+    bool enableAddPartMaskL;
+    bool enableAddPartMaskR;
+    
+    bool enableViewFoto;
+    ofImage foto;
+
 
 };

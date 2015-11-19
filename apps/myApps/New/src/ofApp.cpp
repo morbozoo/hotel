@@ -39,6 +39,8 @@ void ofApp::setup(){
   loadJSON();
 
   mTriangleManager->generateTriangles();
+
+  foto.loadImage("foto.jpg");
 }
 
 void ofApp::setupGUI(){
@@ -68,8 +70,11 @@ void ofApp::setupGUI(){
     mHideGUI = true;
 
     gui.loadFromFile("settings.xml");
-
-
+    
+    //MASK
+    mask.setup();
+    enableAddPartMaskL = false;
+    enableAddPartMaskR = false;
 }
 
 //--------------------------------------------------------------
@@ -237,6 +242,12 @@ void ofApp::draw(){
 
    ofBackground(ofColor(0));
 
+    if(enableViewFoto){
+        ofPushStyle();
+	ofSetColor(255, 255, 255);
+	foto.draw(250, 50, 480, 640);
+        ofPopStyle();
+    }
     if(mDrawMesh){
       mTriangleManager->drawMesh();
     }
@@ -266,8 +277,19 @@ void ofApp::draw(){
 	for (int i = 0; i < 4; i++) {
 		ofDrawBitmapString(ofToString(messages[0]), messages[i+1], messages[i+2]);
 	}
+
+	//MASK
+   
+    mask.draw();
+        
+        //GUI
+    if( !mHideGUI ){
+            gui.draw();
+    }
+
 }
 
+//--------------------------------------------------------------
 void ofApp::exit()
 {
 
@@ -290,7 +312,12 @@ void ofApp::keyPressed(int key){
         gui.loadFromFile("settings.xml");
     }else if( key == 'y'){
       enableTargetParticle = true;
+    }else if(key == 'l'){
+        enableAddPartMaskL = true;
+    }else if(key == 'r'){
+        enableAddPartMaskR = true;
     }
+
 
 }
 
@@ -306,9 +333,13 @@ void ofApp::keyReleased(int key){
         enableNewParticle = false;
     }else if( key == 'y'){
       enableTargetParticle = true;
+    }else if(key == 'l'){
+	enableAddPartMaskL = false;
+    }else if(key == 'r'){
+	enableAddPartMaskR = false;
     }
 
-    if(key == 'l'){
+    if(key == 'j'){
       //  loadJSON();
     }
 
@@ -408,6 +439,23 @@ void ofApp::mousePressed(int x, int y, int button){
           if(mTargetCounter >= 2)
             mTargetCounter = 0;
 
+        }
+    }else if(enableAddPartMaskL){
+	ofPushStyle();
+	ofSetColor(255, 0, 0);
+	ofCircle(1000, 0, 20);
+	ofPopStyle();
+
+	Particle * particle = mTriangleManager->getNearestParticle(ofVec3f(x, y, 0));
+	particle->setColor( ofColor(255, 0, 0));
+	if(particle != NULL){
+            mask.addParticleL(ofVec3f(particle->getX(), particle->getY(), 0));
+	}
+    }else if(enableAddPartMaskR){
+	Particle * particle = mTriangleManager->getNearestParticle(ofVec3f(x, y, 0));
+    	particle->setColor( ofColor(255, 0, 0));
+	if(particle != NULL){
+	    mask.addParticleL(ofVec3f(particle->getX(), particle->getY(), 0));
         }
     }
 

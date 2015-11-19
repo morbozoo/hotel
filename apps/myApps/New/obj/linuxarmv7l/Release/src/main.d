@@ -338,7 +338,7 @@ obj/linuxarmv7l/Release/src/main.o: src/main.cpp \
  ../../../addons/ofxJSON/src/ofxJSON.h \
  ../../../addons/ofxJSON/libs/jsoncpp/include/json/json.h \
  ../../../addons/ofxJSON/src/ofxJSONElement.h src/ParticleManager.h \
- src/Particle.h src/TriangleManager.h src/Triangle.h
+ src/Particle.h src/TriangleManager.h src/Triangle.h src/Masker.h
 
 ../../../libs/openFrameworks/ofMain.h:
 
@@ -1059,3 +1059,5 @@ src/Particle.h:
 src/TriangleManager.h:
 
 src/Triangle.h:
+
+src/Masker.h:

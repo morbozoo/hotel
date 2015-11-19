@@ -1,4 +1,4 @@
-obj/linuxarmv7l/Release/src/ofApp.o: src/ofApp.cpp src/ofApp.h \
+obj/linuxarmv7l/Release/src/Masker.o: src/Masker.cpp src/Masker.h \
  ../../../libs/openFrameworks/ofMain.h \
  ../../../libs/openFrameworks/utils/ofConstants.h \
  ../../../libs/tess2/include/tesselator.h \
@@ -309,38 +309,9 @@ obj/linuxarmv7l/Release/src/ofApp.o: src/ofApp.cpp src/ofApp.h \
  ../../../libs/openFrameworks/video/ofVideoPlayer.h \
  ../../../libs/openFrameworks/video/ofGstVideoPlayer.h \
  ../../../libs/openFrameworks/3d/ofCamera.h \
- ../../../libs/openFrameworks/3d/ofEasyCam.h \
- ../../../addons/ofxGui/src/ofxGui.h \
- ../../../addons/ofxGui/src/ofxToggle.h \
- ../../../addons/ofxGui/src/ofxBaseGui.h \
- ../../../addons/ofxGui/src/ofxSlider.h \
- ../../../addons/ofxGui/src/ofxSliderGroup.h \
- ../../../addons/ofxGui/src/ofxGuiGroup.h \
- ../../../addons/ofxGui/src/ofxButton.h \
- ../../../addons/ofxGui/src/ofxPanel.h \
- ../../../addons/ofxGui/src/ofxLabel.h \
- ../../../addons/ofxOsc/src/ofxOsc.h \
- ../../../addons/ofxOsc/src/ofxOscArg.h \
- ../../../addons/ofxOsc/src/ofxOscMessage.h \
- ../../../addons/ofxOsc/src/ofxOscSender.h \
- ../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.h \
- ../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.h \
- ../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.h \
- ../../../addons/ofxOsc/libs/oscpack/src/osc/OscException.h \
- ../../../addons/ofxOsc/src/ofxOscBundle.h \
- ../../../addons/ofxOsc/src/ofxOscReceiver.h \
- ../../../addons/ofxOsc/libs/oscpack/src/osc/OscPacketListener.h \
- ../../../addons/ofxOsc/libs/oscpack/src/osc/OscReceivedElements.h \
- ../../../addons/ofxOsc/libs/oscpack/src/osc/../ip/PacketListener.h \
- ../../../addons/ofxOsc/libs/oscpack/src/ip/UdpSocket.h \
- ../../../addons/ofxOsc/libs/oscpack/src/ip/NetworkingUtils.h \
- ../../../addons/ofxOsc/libs/oscpack/src/ip/IpEndpointName.h \
- ../../../addons/ofxJSON/src/ofxJSON.h \
- ../../../addons/ofxJSON/libs/jsoncpp/include/json/json.h \
- ../../../addons/ofxJSON/src/ofxJSONElement.h src/ParticleManager.h \
- src/Particle.h src/TriangleManager.h src/Triangle.h src/Masker.h
+ ../../../libs/openFrameworks/3d/ofEasyCam.h src/Particle.h
 
-src/ofApp.h:
+src/Masker.h:
 
 ../../../libs/openFrameworks/ofMain.h:
 
@@ -996,68 +967,4 @@ src/ofApp.h:
 
 ../../../libs/openFrameworks/3d/ofEasyCam.h:
 
-../../../addons/ofxGui/src/ofxGui.h:
-
-../../../addons/ofxGui/src/ofxToggle.h:
-
-../../../addons/ofxGui/src/ofxBaseGui.h:
-
-../../../addons/ofxGui/src/ofxSlider.h:
-
-../../../addons/ofxGui/src/ofxSliderGroup.h:
-
-../../../addons/ofxGui/src/ofxGuiGroup.h:
-
-../../../addons/ofxGui/src/ofxButton.h:
-
-../../../addons/ofxGui/src/ofxPanel.h:
-
-../../../addons/ofxGui/src/ofxLabel.h:
-
-../../../addons/ofxOsc/src/ofxOsc.h:
-
-../../../addons/ofxOsc/src/ofxOscArg.h:
-
-../../../addons/ofxOsc/src/ofxOscMessage.h:
-
-../../../addons/ofxOsc/src/ofxOscSender.h:
-
-../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.h:
-
-../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.h:
-
-../../../addons/ofxOsc/libs/oscpack/src/osc/OscTypes.h:
-
-../../../addons/ofxOsc/libs/oscpack/src/osc/OscException.h:
-
-../../../addons/ofxOsc/src/ofxOscBundle.h:
-
-../../../addons/ofxOsc/src/ofxOscReceiver.h:
-
-../../../addons/ofxOsc/libs/oscpack/src/osc/OscPacketListener.h:
-
-../../../addons/ofxOsc/libs/oscpack/src/osc/OscReceivedElements.h:
-
-../../../addons/ofxOsc/libs/oscpack/src/osc/../ip/PacketListener.h:
-
-../../../addons/ofxOsc/libs/oscpack/src/ip/UdpSocket.h:
-
-../../../addons/ofxOsc/libs/oscpack/src/ip/NetworkingUtils.h:
-
-../../../addons/ofxOsc/libs/oscpack/src/ip/IpEndpointName.h:
-
-../../../addons/ofxJSON/src/ofxJSON.h:
-
-../../../addons/ofxJSON/libs/jsoncpp/include/json/json.h:
-
-../../../addons/ofxJSON/src/ofxJSONElement.h:
-
-src/ParticleManager.h:
-
 src/Particle.h:
-
-src/TriangleManager.h:
-
-src/Triangle.h:
-
-src/Masker.h:
