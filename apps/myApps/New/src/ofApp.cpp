@@ -41,6 +41,9 @@ void ofApp::setup(){
   mTriangleManager->generateTriangles();
 
   foto.loadImage("foto.jpg");
+  
+  player.loadMovie("fingers.mov");
+  player.play();
 }
 
 void ofApp::setupGUI(){
@@ -235,19 +238,21 @@ void ofApp::update(){
 			// clear the next line
 			msg_strings[current_msg_string] = "";
 		}
+	player.update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 
    ofBackground(ofColor(0));
-
+/*
     if(enableViewFoto){
         ofPushStyle();
 	ofSetColor(255, 255, 255);
 	foto.draw(250, 50, 480, 640);
         ofPopStyle();
     }
+*/
     if(mDrawMesh){
       mTriangleManager->drawMesh();
     }
@@ -279,7 +284,10 @@ void ofApp::draw(){
 	}
 
 	//MASK
-   
+   /* ofPushStyle();
+    ofSetColor(255, 255, 255, 100);
+    player.draw(250, 50, 480, 640);
+    ofPopStyle();*/
     mask.draw();
         
         //GUI

@@ -110,5 +110,7 @@ class ofApp : public ofBaseApp{
     bool enableViewFoto;
     ofImage foto;
 
-
+     //-----------VIDEO-----------------------------------
+ 
+    ofVideoPlayer player;
 };

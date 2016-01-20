@@ -20,19 +20,19 @@ void Masker::update(){
 //--------------------------------------------------------------
 void Masker::draw(){
     ofPushStyle();
-    ofSetColor(255, 255, 255);
-    //ofSetPolyMode(OF_POLY_WINDING_ABS_GEQ_TWO);
-    ofBeginShape();
+    ofSetColor(55, 55, 55, 55);
+    ofSetLineWidth(3);
+    glBegin(GL_POLYGON);
     for(int i = 0; i < left.size(); i ++){
-        ofVertex(left[i].x, left[i].y);
+        glVertex3f(left[i].x, left[i].y, 0.0f);
     }
-    ofEndShape();
+    glEnd();
 
-    ofBeginShape();
+    glBegin(GL_POLYGON);
     for(int i = 0; i < right.size(); i ++){
-        ofVertex(right[i].x, right[i].y);
+        glVertex3f(right[i].x, right[i].y, 0.0f);
     }
-    ofEndShape();
+    glEnd();
 
     ofPopStyle();
 }

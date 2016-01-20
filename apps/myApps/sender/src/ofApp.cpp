@@ -1,4 +1,4 @@
- 
+
 /*
  
  Copyright 2007, 2008 Damian Stewart damian@frey.co.nz
@@ -43,10 +43,6 @@ void ofApp::draw(){
 	char buf[256];
 	sprintf( buf, "sending osc messages to %s:%d", HOST, PORT );
 	ofDrawBitmapString( buf, 10, 20 );
-	ofDrawBitmapString( "move the mouse to send osc message [/mouse/position <x> <y>]", 10, 50 );
-	ofDrawBitmapString( "click to send osc message [/mouse/button <button> <\"up\"|\"down\">]", 10, 65 );
-	ofDrawBitmapString( "press A to send osc message [/test 1 3.5 hello <time>]", 10, 80 );
-	ofDrawBitmapString( "press B to send osc bundle [ [/bundle1 3] [/bundle2 5.5]\n    [ [/bundle3a nested_bundle_test] [/bundle3b test2] ] ]", 10, 95 );
 }
 
 
@@ -55,58 +51,81 @@ void ofApp::keyPressed  (int key){
 	if ( key =='a' || key == 'A' )
 	{
 		ofxOscMessage m;
-		m.setAddress( "/test" );
-		m.addIntArg( 1 );
-		m.addFloatArg( 3.5f );
-		m.addStringArg( "hello" );
-		m.addFloatArg( ofGetElapsedTimef() );
+		m.setAddress( "mood" );
+		m.addInt64Arg( 0 );
 		sender.sendMessage( m );
-	}
-	else if ( key == 'b' || key == 'B' )
-	{
-		ofxOscBundle b;
-		
-		// make message
-		ofxOscMessage m;
-		m.setAddress( "/bundle1" );
-		m.addIntArg( 3 );
-		// add to bundle
-		b.addMessage( m );
-
-		// and repeat
-		m.clear();
-		m.setAddress( "/bundle2" );
-		m.addFloatArg( 5.5f );
-		// add to bundle
-		b.addMessage( m );
-		
-		// make nested bundle
-		ofxOscBundle nested_b;
-		m.clear();
-		m.setAddress( "/bundle3a" );
-		m.addStringArg( "nested bundle test" );
-		nested_b.addMessage( m );
-		m.clear();
-		m.setAddress( "/bundle3b" );
-		m.addStringArg( "test2" );
-		nested_b.addMessage( m );
-		
-		// add to outer bundle
-		b.addBundle( nested_b );
-
-		// send
-		sender.sendBundle( b );
-	}
+	}else if( key =='s' || key == 'S' )
+        {
+                ofxOscMessage m;
+                m.setAddress( "mood" );
+                m.addInt64Arg( 1 );
+                sender.sendMessage( m );
+        }else if( key =='d' || key == 'D' )
+        {
+                ofxOscMessage m;
+                m.setAddress( "mood" );
+                m.addInt64Arg( 2 );
+                sender.sendMessage( m );
+        }else if( key =='f' || key == 'F' )
+        {
+                ofxOscMessage m;
+                m.setAddress( "mood" );
+                m.addInt64Arg( 3 );
+                sender.sendMessage( m );
+        }else if( key =='q' || key == 'Q' )
+        {
+                ofxOscMessage m;
+                m.setAddress( "mood" );
+                m.addInt64Arg( 4 );
+                sender.sendMessage( m );
+        }else if( key =='w' || key == 'W' )
+        {
+                ofxOscMessage m;
+                m.setAddress( "mood" );
+                m.addInt64Arg( 5 );
+                sender.sendMessage( m );
+        }else if( key =='e' || key == 'E' )
+        {
+                ofxOscMessage m;
+                m.setAddress( "mood" );
+                m.addInt64Arg( 6 );
+                sender.sendMessage( m );
+        }else if( key =='r' || key == 'R' )
+        {
+                ofxOscMessage m;
+                m.setAddress( "mood" );
+                m.addInt64Arg( 7 );
+                sender.sendMessage( m );
+        }else if( key =='T' || key == 't' )
+        {
+                ofxOscMessage m;
+                m.setAddress( "mood" );
+                m.addInt64Arg( 8 );
+                sender.sendMessage( m );
+        }else if( key =='Y' || key == 'y' )
+        {
+                ofxOscMessage m;
+                m.setAddress( "mood" );
+                m.addInt64Arg( 9 );
+                sender.sendMessage( m );
+        }
 		
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-	ofxOscMessage m;
-	m.setAddress( "/mouse/position" );
-	m.addIntArg( x );
-	m.addIntArg( y );
-	sender.sendMessage( m );
+        if(x < 256){
+            ofxOscMessage m;	
+	    m.setAddress( "slider1" );
+            m.addInt64Arg( x );
+	    sender.sendMessage( m );
+	}
+	if(y < 256){
+            ofxOscMessage m;
+            m.setAddress( "slider2" );
+            m.addInt64Arg( y );
+            sender.sendMessage( m );
+        }
 }
 
 //--------------------------------------------------------------
@@ -122,10 +141,3 @@ void ofApp::mousePressed(int x, int y, int button){
 	sender.sendMessage( m );
 }
 
-//--------------------------------------------------------------
-void ofApp::mouseReleased(){
-	ofxOscMessage m;
-	m.setAddress( "/mouse/button" );
-	m.addStringArg( "up" );
-	sender.sendMessage( m );	
-}

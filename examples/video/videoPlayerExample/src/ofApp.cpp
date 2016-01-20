@@ -7,9 +7,8 @@ void ofApp::setup(){
 	frameByframe = false;
 
 	// Uncomment this to show movies with alpha channels
-	// fingerMovie.setPixelFormat(OF_PIXELS_RGBA);
-
-	fingerMovie.loadMovie("movies/fingers.mov");
+	//fingerMovie.setPixelFormat(OF_PIXELS_RGBA);
+	fingerMovie.loadMovie("movies/Agua_1.ogv");
 	fingerMovie.play();
 }
 
